@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dr. Esteban Caram — Cirugía General | Tucumán</title>
+  <meta name="description" content="Dr. Esteban Caram, Especialista en Cirugía General y Cirugía Videolaparoscópica. Instituto de Gastroenterología, B. Rivadavia 585, Tucumán. Mat. 3672." />
+  <link rel="icon" type="image/png" href="Banner y Logo/logo.png" />
+  <link rel="apple-touch-icon" href="Banner y Logo/logo.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --teal:        #0B7A8C;
+      --teal-dark:   #085F6D;
+      --teal-light:  #E6F4F6;
+      --teal-mid:    #C2E4E9;
+      --navy:        #1A2535;
+      --gray-dark:   #3D4A5C;
+      --gray-mid:    #6B7A8D;
+      --gray-light:  #F4F7F9;
+      --white:       #FFFFFF;
+      --border:      #E2E8ED;
+      --serif:       'Cormorant Garamond', Georgia, serif;
+      --sans:        'Inter', system-ui, sans-serif;
+      --shadow-sm:   0 2px 8px rgba(0,0,0,.06);
+      --shadow-md:   0 6px 24px rgba(0,0,0,.10);
+      --radius:      10px;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { font-family: var(--sans); color: var(--gray-dark); background: var(--white); line-height: 1.6; }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(255,255,255,.97); backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      height: 68px; display: flex; align-items: center;
+    }
+    .nav-inner {
+      width: 100%; max-width: 1160px; margin: 0 auto; padding: 0 32px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-family: var(--serif); font-size: 1.15rem; font-weight: 500;
+      color: var(--navy); text-decoration: none; letter-spacing: .02em;
+    }
+    .nav-logo img { height: 38px; width: auto; display: block; }
+    .nav-logo span { color: var(--teal); }
+    .nav-links { display: flex; align-items: center; gap: 32px; }
+    .nav-links a {
+      font-size: .82rem; font-weight: 500; letter-spacing: .06em;
+      text-transform: uppercase; color: var(--gray-dark); text-decoration: none;
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--teal); }
+    .btn-turno {
+      background: var(--teal); color: var(--white) !important;
+      padding: 10px 22px; border-radius: 6px; font-size: .82rem !important;
+      font-weight: 600 !important; letter-spacing: .04em !important;
+      text-decoration: none; transition: background .2s, transform .15s;
+      white-space: nowrap;
+    }
+    .btn-turno:hover { background: var(--teal-dark) !important; transform: translateY(-1px); }
+
+    /* hamburger */
+    .nav-toggle { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-toggle span { width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: .3s; }
+    .nav-mobile {
+      display: none; position: fixed; top: 68px; left: 0; right: 0;
+      background: var(--white); border-bottom: 1px solid var(--border);
+      flex-direction: column; padding: 24px 32px; gap: 20px; z-index: 99;
+    }
+    .nav-mobile a {
+      font-size: .88rem; font-weight: 500; letter-spacing: .05em;
+      text-transform: uppercase; color: var(--gray-dark); text-decoration: none;
+    }
+    .nav-mobile.open { display: flex; }
+
+    /* ── HERO ── */
+    #inicio {
+      padding-top: 68px; min-height: 100vh;
+      display: flex; align-items: center;
+      background: linear-gradient(135deg, var(--navy) 0%, #0d3045 60%, #0B4F5E 100%);
+      position: relative; overflow: hidden;
+    }
+    #inicio::before {
+      content: ''; position: absolute; inset: 0;
+      background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.02'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    }
+    .hero-inner {
+      max-width: 1160px; margin: 0 auto; padding: 80px 32px;
+      display: grid; grid-template-columns: 1fr 420px; gap: 72px; align-items: center;
+      position: relative; z-index: 1;
+    }
+    .hero-tag {
+      display: inline-block; background: rgba(11,122,140,.35); color: var(--teal-mid);
+      font-size: .72rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      padding: 6px 14px; border-radius: 20px; margin-bottom: 20px;
+      border: 1px solid rgba(11,122,140,.4);
+    }
+    .hero-title {
+      font-family: var(--serif); font-size: clamp(2.6rem, 5vw, 4rem);
+      font-weight: 300; color: var(--white); line-height: 1.15;
+      margin-bottom: 10px;
+    }
+    .hero-title strong { font-weight: 600; }
+    .hero-subtitle {
+      font-family: var(--serif); font-size: 1.4rem; font-style: italic;
+      color: var(--teal-mid); margin-bottom: 24px; font-weight: 300;
+    }
+    .hero-desc { font-size: .92rem; color: rgba(255,255,255,.72); max-width: 460px; margin-bottom: 36px; line-height: 1.7; }
+    .hero-location {
+      display: flex; align-items: center; gap: 8px;
+      font-size: .82rem; color: rgba(255,255,255,.55); margin-bottom: 36px;
+    }
+    .hero-location svg { opacity: .6; flex-shrink: 0; }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn-primary {
+      background: var(--teal); color: var(--white); padding: 14px 28px;
+      border-radius: 8px; font-size: .88rem; font-weight: 600; letter-spacing: .03em;
+      text-decoration: none; transition: background .2s, transform .15s; display: inline-block;
+    }
+    .btn-primary:hover { background: var(--teal-dark); transform: translateY(-2px); }
+    .btn-outline {
+      background: transparent; color: rgba(255,255,255,.85);
+      border: 1px solid rgba(255,255,255,.3); padding: 14px 28px;
+      border-radius: 8px; font-size: .88rem; font-weight: 500; letter-spacing: .03em;
+      text-decoration: none; transition: border-color .2s, color .2s, transform .15s; display: inline-block;
+    }
+    .btn-outline:hover { border-color: var(--teal-mid); color: var(--white); transform: translateY(-2px); }
+    .hero-photo-wrap {
+      position: relative; display: flex; justify-content: flex-end;
+    }
+    .hero-photo-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px; overflow: hidden; width: 380px;
+      box-shadow: 0 32px 64px rgba(0,0,0,.35);
+    }
+    .hero-photo-card img { width: 100%; display: block; object-fit: cover; }
+    .hero-badge {
+      position: absolute; bottom: -16px; left: -16px;
+      background: var(--white); border-radius: 12px; padding: 14px 20px;
+      box-shadow: var(--shadow-md); display: flex; align-items: center; gap: 10px;
+    }
+    .hero-badge-icon {
+      width: 40px; height: 40px; background: var(--teal-light); border-radius: 50%;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .hero-badge-icon svg { color: var(--teal); }
+    .hero-badge-text strong { display: block; font-size: .82rem; color: var(--navy); font-weight: 600; }
+    .hero-badge-text span { font-size: .72rem; color: var(--gray-mid); }
+
+    /* ── SECTIONS COMMON ── */
+    section { padding: 90px 32px; }
+    .section-inner { max-width: 1160px; margin: 0 auto; }
+    .section-eyebrow {
+      font-size: .72rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase;
+      color: var(--teal); margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 2.8rem);
+      font-weight: 400; color: var(--navy); line-height: 1.2; margin-bottom: 16px;
+    }
+    .section-lead { font-size: 1rem; color: var(--gray-mid); max-width: 560px; line-height: 1.75; }
+    .divider { width: 48px; height: 3px; background: var(--teal); border-radius: 2px; margin: 20px 0 48px; }
+
+    /* ── SOBRE MÍ ── */
+    #sobre-mi { background: var(--gray-light); }
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
+    .about-text p { font-size: .95rem; color: var(--gray-dark); line-height: 1.8; margin-bottom: 18px; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
+    .stat-card {
+      background: var(--white); border-radius: var(--radius); padding: 20px;
+      border: 1px solid var(--border); text-align: center;
+    }
+    .stat-number { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; color: var(--teal); line-height: 1; }
+    .stat-label { font-size: .78rem; color: var(--gray-mid); margin-top: 4px; letter-spacing: .03em; }
+    .credentials { margin-top: 0; }
+    .credentials h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 24px; font-weight: 500; }
+    .credential-item {
+      display: flex; gap: 16px; align-items: flex-start;
+      padding: 18px 0; border-bottom: 1px solid var(--border);
+    }
+    .credential-item:last-child { border-bottom: none; }
+    .cred-dot {
+      width: 10px; height: 10px; background: var(--teal); border-radius: 50%;
+      flex-shrink: 0; margin-top: 6px;
+    }
+    .cred-year { font-size: .75rem; color: var(--teal); font-weight: 600; letter-spacing: .06em; margin-bottom: 2px; }
+    .cred-title { font-size: .92rem; color: var(--navy); font-weight: 500; margin-bottom: 2px; }
+    .cred-place { font-size: .82rem; color: var(--gray-mid); }
+
+    /* ── ESPECIALIDADES ── */
+    #especialidades { background: var(--white); }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .service-card {
+      background: var(--gray-light); border-radius: 12px; padding: 32px;
+      border: 1px solid var(--border); transition: box-shadow .25s, transform .25s, border-color .25s;
+      cursor: default;
+    }
+    .service-card:hover { box-shadow: var(--shadow-md); transform: translateY(-4px); border-color: var(--teal-mid); }
+    .service-icon {
+      width: 52px; height: 52px; background: var(--teal-light); border-radius: 12px;
+      display: flex; align-items: center; justify-content: center; margin-bottom: 20px;
+    }
+    .service-icon svg { color: var(--teal); }
+    .service-title { font-family: var(--serif); font-size: 1.25rem; color: var(--navy); margin-bottom: 10px; font-weight: 500; }
+    .service-desc { font-size: .85rem; color: var(--gray-mid); line-height: 1.7; }
+
+    /* ── INSTITUTO ── */
+    #instituto { background: var(--navy); }
+    #instituto .section-title { color: var(--white); }
+    #instituto .section-lead { color: rgba(255,255,255,.6); }
+    #instituto .divider { background: var(--teal-mid); }
+    .instituto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: center; }
+    .instituto-info-cards { display: grid; gap: 16px; }
+    .info-card {
+      background: rgba(255,255,255,.07); border: 1px solid rgba(255,255,255,.1);
+      border-radius: var(--radius); padding: 20px 24px;
+      display: flex; align-items: center; gap: 16px;
+    }
+    .info-card-icon {
+      width: 44px; height: 44px; background: rgba(11,122,140,.3); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .info-card-icon svg { color: var(--teal-mid); }
+    .info-card-label { font-size: .72rem; color: rgba(255,255,255,.45); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 3px; }
+    .info-card-value { font-size: .92rem; color: var(--white); font-weight: 500; }
+    .info-card-value a { color: var(--teal-mid); text-decoration: none; }
+    .info-card-value a:hover { text-decoration: underline; }
+    .instituto-text p { font-size: .95rem; color: rgba(255,255,255,.72); line-height: 1.8; margin-bottom: 18px; }
+    .btn-instituto {
+      display: inline-block; border: 1px solid rgba(255,255,255,.25); color: var(--white);
+      padding: 12px 24px; border-radius: 8px; font-size: .84rem; font-weight: 500;
+      text-decoration: none; transition: border-color .2s, background .2s; margin-top: 8px;
+    }
+    .btn-instituto:hover { border-color: var(--teal-mid); background: rgba(11,122,140,.2); }
+
+    /* ── MAPA ── */
+    .map-wrap {
+      margin-top: 56px; border-radius: 16px; overflow: hidden;
+      border: 1px solid rgba(255,255,255,.1); height: 320px;
+    }
+    .map-wrap iframe { width: 100%; height: 100%; display: block; border: none; }
+
+    /* ── FAQ ── */
+    #faq { background: var(--gray-light); }
+    .faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .faq-item {
+      background: var(--white); border-radius: var(--radius); padding: 28px;
+      border: 1px solid var(--border);
+    }
+    .faq-q { font-size: .95rem; color: var(--navy); font-weight: 600; margin-bottom: 10px; line-height: 1.45; }
+    .faq-a { font-size: .86rem; color: var(--gray-mid); line-height: 1.75; }
+
+    /* ── CONTACTO ── */
+    #contacto { background: var(--white); }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .contact-block h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--navy); margin-bottom: 12px; font-weight: 400; }
+    .contact-block p { font-size: .9rem; color: var(--gray-mid); line-height: 1.75; margin-bottom: 28px; }
+    .contact-items { display: flex; flex-direction: column; gap: 14px; margin-bottom: 32px; }
+    .contact-item { display: flex; align-items: flex-start; gap: 14px; }
+    .contact-item-icon {
+      width: 38px; height: 38px; background: var(--teal-light); border-radius: 8px;
+      display: flex; align-items: center; justify-content: center; flex-shrink: 0;
+    }
+    .contact-item-icon svg { color: var(--teal); }
+    .contact-item-label { font-size: .72rem; color: var(--gray-mid); letter-spacing: .06em; text-transform: uppercase; margin-bottom: 2px; }
+    .contact-item-value { font-size: .9rem; color: var(--navy); font-weight: 500; }
+    .contact-item-value a { color: var(--navy); text-decoration: none; }
+    .contact-item-value a:hover { color: var(--teal); }
+    .turno-card {
+      background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+      border-radius: 16px; padding: 40px; color: var(--white); text-align: center;
+    }
+    .turno-card h3 { font-family: var(--serif); font-size: 1.7rem; font-weight: 400; margin-bottom: 12px; }
+    .turno-card p { font-size: .88rem; opacity: .8; margin-bottom: 28px; line-height: 1.6; }
+    .btn-turno-lg {
+      background: var(--white); color: var(--teal);
+      padding: 15px 32px; border-radius: 8px; font-size: .9rem; font-weight: 700;
+      text-decoration: none; display: inline-block; transition: transform .2s, box-shadow .2s;
+    }
+    .btn-turno-lg:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+    .turno-note { font-size: .75rem; opacity: .6; margin-top: 16px; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,.45);
+      padding: 36px 32px; font-size: .8rem;
+    }
+    .footer-inner {
+      max-width: 1160px; margin: 0 auto;
+      display: flex; justify-content: space-between; align-items: center;
+      flex-wrap: wrap; gap: 12px;
+    }
+    .footer-inner a { color: rgba(255,255,255,.45); text-decoration: none; }
+    .footer-inner a:hover { color: var(--teal-mid); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .nav-links { display: none; }
+      .nav-toggle { display: flex; }
+      .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 24px; }
+      .hero-photo-wrap { justify-content: center; }
+      .hero-photo-card { width: 100%; max-width: 360px; }
+      .hero-badge { left: 0; bottom: -12px; }
+      .about-grid, .instituto-grid, .contact-grid, .faq-grid { grid-template-columns: 1fr; gap: 40px; }
+      .services-grid { grid-template-columns: 1fr 1fr; }
+      section { padding: 64px 24px; }
+    }
+    @media (max-width: 560px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .about-stats { grid-template-columns: 1fr 1fr; }
+      .hero-ctas { flex-direction: column; }
+      .btn-primary, .btn-outline { text-align: center; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="#inicio" class="nav-logo">
+      <img src="Banner y Logo/logo.png" alt="Logo Dr. Esteban Caram" />
+      Dr. <span>Esteban Caram</span>
+    </a>
+    <div class="nav-links">
+      <a href="#sobre-mi">Sobre mí</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#instituto">Instituto</a>
+      <a href="#faq">Preguntas</a>
+      <a href="#contacto">Contacto</a>
+      <a href="https://medexisweb.com/medexisportal/?to=9&cp=95A8FF82B4319626" target="_blank" rel="noopener" class="btn-turno">Solicitá tu turno</a>
+    </div>
+    <div class="nav-toggle" onclick="document.querySelector('.nav-mobile').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="nav-mobile">
+  <a href="#sobre-mi" onclick="document.querySelector('.nav-mobile').classList.remove('open')">Sobre mí</a>
+  <a href="#especialidades" onclick="document.querySelector('.nav-mobile').classList.remove('open')">Especialidades</a>
+  <a href="#instituto" onclick="document.querySelector('.nav-mobile').classList.remove('open')">Instituto</a>
+  <a href="#faq" onclick="document.querySelector('.nav-mobile').classList.remove('open')">Preguntas frecuentes</a>
+  <a href="#contacto" onclick="document.querySelector('.nav-mobile').classList.remove('open')">Contacto</a>
+  <a href="https://medexisweb.com/medexisportal/?to=9&cp=95A8FF82B4319626" target="_blank" rel="noopener" class="btn-turno" style="text-align:center">Solicitá tu turno</a>
+</div>
+
+<!-- HERO -->
+<section id="inicio">
+  <div class="hero-inner">
+    <div class="hero-content">
+      <div class="hero-tag">Cirugía General · Tucumán &nbsp;·&nbsp; Mat. 3672</div>
+      <h1 class="hero-title">Dr. <strong>Esteban<br>Caram</strong></h1>
+      <p class="hero-subtitle">Especialista en Cirugía General</p>
+      <p class="hero-desc">
+        Especialista en cirugía videolaparoscópica y procedimientos del aparato digestivo.
+        Atención personalizada con el respaldo del Instituto de Gastroenterología de Tucumán.
+      </p>
+      <div class="hero-location">
+        <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        San Miguel de Tucumán, Argentina
+      </div>
+      <div class="hero-ctas">
+        <a href="https://medexisweb.com/medexisportal/?to=9&cp=95A8FF82B4319626" target="_blank" rel="noopener" class="btn-primary">Solicitá tu turno</a>
+        <a href="#especialidades" class="btn-outline">Ver especialidades</a>
+      </div>
+    </div>
+    <div class="hero-photo-wrap">
+      <div class="hero-photo-card">
+        <img src="Foto esteban/Caram-Esteban.png" alt="Dr. Esteban Caram — Cirujano Tucumán" />
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE MÍ -->
+<section id="sobre-mi">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <p class="section-eyebrow">Sobre mí</p>
+        <h2 class="section-title">Formación e información académica</h2>
+        <div class="divider"></div>
+        <p>
+          El Dr. Esteban Caram es Especialista en Cirugía General (Mat. 3672) egresado de la
+          Universidad Nacional de Tucumán. Se desempeña en el Instituto de Gastroenterología de
+          Tucumán, donde realiza cirugías del aparato digestivo con especial énfasis en cirugía
+          videolaparoscópica.
+        </p>
+        <p>
+          Su formación continua y su compromiso con la actualización permanente le permiten brindar
+          a sus pacientes los estándares más elevados en diagnóstico y tratamiento quirúrgico.
+          Combina la precisión técnica con un trato humano y cercano, acompañando al paciente
+          en cada etapa del proceso.
+        </p>
+        <p>
+          Trabaja en forma coordinada con el equipo de especialistas del instituto, garantizando
+          una atención integral y multidisciplinaria para cada caso.
+        </p>
+        <div class="about-stats">
+          <div class="stat-card">
+            <div class="stat-number">+10</div>
+            <div class="stat-label">años de experiencia</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">UNT</div>
+            <div class="stat-label">Universidad Nacional de Tucumán</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">IGT</div>
+            <div class="stat-label">Instituto de Gastroenterología Tucumán</div>
+          </div>
+          <div class="stat-card">
+            <div class="stat-number">3672</div>
+            <div class="stat-label">matrícula provincial</div>
+          </div>
+        </div>
+      </div>
+      <div class="credentials">
+        <h3>Formación y trayectoria</h3>
+        <div class="credential-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-year">GRADO</div>
+            <div class="cred-title">Médico Cirujano</div>
+            <div class="cred-place">Universidad Nacional de Tucumán (UNT)</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-year">RESIDENCIA</div>
+            <div class="cred-title">Cirugía General</div>
+            <div class="cred-place">Hospital de referencia — Tucumán</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-year">ESPECIALIDAD</div>
+            <div class="cred-title">Cirugía General — Mat. 3672</div>
+            <div class="cred-place">Especialista en Cirugía Videolaparoscópica</div>
+          </div>
+        </div>
+        <div class="credential-item">
+          <div class="cred-dot"></div>
+          <div>
+            <div class="cred-year">ACTUAL</div>
+            <div class="cred-title">Médico de planta — Cirugía</div>
+            <div class="cred-place">Instituto de Gastroenterología Tucumán</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESPECIALIDADES -->
+<section id="especialidades">
+  <div class="section-inner">
+    <p class="section-eyebrow">Especialidades</p>
+    <h2 class="section-title">Procedimientos y cirugías</h2>
+    <div class="divider"></div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+        </div>
+        <div class="service-title">Cirugía Videolaparoscópica</div>
+        <p class="service-desc">
+          Procedimientos mínimamente invasivos guiados por video para el tratamiento de múltiples
+          patologías abdominales. Menor dolor postoperatorio, recuperación más rápida y mínimas cicatrices.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="service-title">Cirugía de Hernias</div>
+        <p class="service-desc">
+          Tratamiento de hernias inguinales, umbilicales, hiatales y de la pared abdominal,
+          tanto por vía laparoscópica como convencional, según cada caso clínico.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 2a10 10 0 1 0 10 10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="service-title">Colecistectomía (Vesícula)</div>
+        <p class="service-desc">
+          Extirpación de la vesícula biliar por laparoscopía en presencia de litiasis o inflamación.
+          Intervención de alta frecuencia con excelentes resultados y recuperación acelerada.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+        </div>
+        <div class="service-title">Cirugía de Colon y Recto</div>
+        <p class="service-desc">
+          Resecciones colónicas, cirugía de divertículos, pólipos y neoplasias del intestino
+          grueso. Abordaje laparoscópico cuando la anatomía del caso lo permite.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="service-title">Apendicectomía</div>
+        <p class="service-desc">
+          Extirpación del apéndice por laparoscopía en casos de apendicitis aguda.
+          Procedimiento resolutivo con alta hospitalaria precoz y mínimo tiempo de recuperación.
+        </p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="service-title">Cirugía Gástrica</div>
+        <p class="service-desc">
+          Tratamiento quirúrgico de patologías del estómago: úlceras, tumores gástricos
+          y reflujo gastroesofágico. Evaluación conjunta con gastroenterólogos del instituto.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- INSTITUTO -->
+<section id="instituto">
+  <div class="section-inner">
+    <div class="instituto-grid">
+      <div class="instituto-text">
+        <p class="section-eyebrow" style="color:var(--teal-mid)">Dónde atiendo</p>
+        <h2 class="section-title">Instituto de Gastroenterología Tucumán</h2>
+        <div class="divider"></div>
+        <p>
+          El Instituto de Gastroenterología de Tucumán es un centro de referencia regional
+          que cuenta con equipamiento de última generación para el diagnóstico y tratamiento
+          endoscópico y quirúrgico de patologías del aparato digestivo.
+        </p>
+        <p>
+          Dispone de sistemas automatizados de esterilización, endoscopios de alta definición
+          y un sistema de calidad propio que garantiza la mejora continua en la atención.
+          Los pacientes pueden acceder a sus resultados de endoscopía y anatomía patológica
+          de manera digital a través del portal del paciente.
+        </p>
+        <a href="https://institutodegastroenterologiatucuman.com.ar/index.html" target="_blank" rel="noopener" class="btn-instituto">
+          Conocer el instituto →
+        </a>
+      </div>
+      <div class="instituto-info-cards">
+        <div class="info-card" style="grid-column:1/-1;display:block;padding:0;overflow:hidden;border-radius:var(--radius);">
+          <iframe
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-65.208%2C-26.838%2C-65.190%2C-26.826&layer=mapnik&marker=-26.8320%2C-65.1990"
+            width="100%" height="200" style="border:none;display:block;"
+            loading="lazy"
+            title="Ubicación Instituto de Gastroenterología Tucumán">
+          </iframe>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div>
+            <div class="info-card-label">Dirección</div>
+            <div class="info-card-value">B. Rivadavia 585<br>San Miguel de Tucumán T4000</div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16.18l.42.74z"/></svg>
+          </div>
+          <div>
+            <div class="info-card-label">Teléfono</div>
+            <div class="info-card-value"><a href="tel:+543814212613">(0381) 421-2613</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          </div>
+          <div>
+            <div class="info-card-label">Turnos online</div>
+            <div class="info-card-value"><a href="https://medexisweb.com/medexisportal/?to=9&cp=95A8FF82B4319626" target="_blank" rel="noopener">Solicitar turno →</a></div>
+          </div>
+        </div>
+        <div class="info-card">
+          <div class="info-card-icon">
+            <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="info-card-label">Atención</div>
+            <div class="info-card-value">Consultas y cirugía programada<br>de lunes a viernes</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="section-inner">
+    <p class="section-eyebrow">Preguntas frecuentes</p>
+    <h2 class="section-title">Todo lo que necesitás saber</h2>
+    <div class="divider"></div>
+    <div class="faq-grid">
+
+      <div class="faq-item">
+        <div class="faq-q">¿Cuándo está indicada una cirugía laparoscópica?</div>
+        <div class="faq-a">
+          La cirugía laparoscópica está indicada para una gran variedad de patologías abdominales:
+          vesícula biliar, apéndice, hernias, colon y estómago, entre otras. Ofrecemos ventajas
+          como menor dolor postoperatorio, cicatrices mínimas y recuperación más rápida.
+          El médico evaluará en consulta si es la técnica más adecuada para tu caso.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">¿Cuánto tiempo demora la recuperación tras una laparoscopía?</div>
+        <div class="faq-a">
+          En la mayoría de las cirugías laparoscópicas electivas (vesícula, hernia),
+          el paciente recibe el alta en 24 a 48 horas y retoma actividades cotidianas
+          en 7 a 14 días. El tiempo varía según el procedimiento y las características
+          individuales del paciente.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">¿Las cirugías requieren internación?</div>
+        <div class="faq-a">
+          Depende del procedimiento. Muchas cirugías laparoscópicas se realizan con
+          internación corta (24-48 hs). Algunas intervenciones menores pueden realizarse
+          en régimen ambulatorio. El Dr. Caram te informará en consulta qué esperar
+          en tu caso particular.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">¿Debo hacer ayuno previo a la consulta?</div>
+        <div class="faq-a">
+          Para la consulta ambulatoria no es necesario ayuno. Sin embargo, si el médico
+          indica estudios de laboratorio o imágenes en la misma visita, puede solicitarse
+          ayuno de 4 a 8 horas. En caso de cirugía programada, se darán indicaciones
+          específicas con anticipación.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">¿Qué obra social / prepaga acepta el instituto?</div>
+        <div class="faq-a">
+          El Instituto de Gastroenterología trabaja con las principales obras sociales y
+          prepagas de la región. Te recomendamos consultar directamente al instituto al
+          (0381) 421-2613 para verificar la cobertura de tu plan antes de sacar turno.
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-q">¿Cómo solicito un turno?</div>
+        <div class="faq-a">
+          Podés solicitar tu turno de forma online haciendo clic en el botón
+          "Solicitá tu turno" en esta página, que te redirigirá al portal de turnos del
+          instituto. También podés llamar al (0381) 421-2613 durante el horario de atención.
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO -->
+<section id="contacto">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div class="contact-block">
+        <p class="section-eyebrow">Contacto</p>
+        <h3>¿Necesitás más información?</h3>
+        <p>
+          Para consultas generales o información sobre cirugías y procedimientos,
+          podés comunicarte con el instituto directamente. Para solicitar un turno
+          de consulta, usá el portal online disponible las 24 horas.
+        </p>
+        <div class="contact-items">
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Consultorio</div>
+              <div class="contact-item-value">B. Rivadavia 585<br>San Miguel de Tucumán T4000, Argentina</div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.4 2 2 0 0 1 3.6 1.21h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.8a16 16 0 0 0 6 6l.9-.9a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.5 16.18l.42.74z"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Teléfono instituto</div>
+              <div class="contact-item-value"><a href="tel:+543814212613">(0381) 421-2613</a></div>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+            </div>
+            <div>
+              <div class="contact-item-label">Web del instituto</div>
+              <div class="contact-item-value">
+                <a href="https://institutodegastroenterologiatucuman.com.ar/index.html" target="_blank" rel="noopener">
+                  institutodegastroenterologiatucuman.com.ar
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="turno-card">
+        <h3>Solicitá tu turno online</h3>
+        <p>Reservá tu consulta de forma rápida y sencilla a través del portal del instituto, disponible las 24 horas.</p>
+        <a href="https://medexisweb.com/medexisportal/?to=9&cp=95A8FF82B4319626" target="_blank" rel="noopener" class="btn-turno-lg">
+          Solicitar turno →
+        </a>
+        <div class="turno-note">Portal MedExis · Instituto de Gastroenterología Tucumán</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <span>© 2026 Dr. Esteban Caram — Todos los derechos reservados</span>
+    <span>
+      <a href="https://institutodegastroenterologiatucuman.com.ar/index.html" target="_blank" rel="noopener">Instituto de Gastroenterología Tucumán</a>
+    </span>
+  </div>
+</footer>
+
+</body>
+</html>
