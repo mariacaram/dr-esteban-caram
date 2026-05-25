@@ -174,7 +174,7 @@
     #sobre-mi { background: var(--gray-light); padding-top: 0; }
     .about-statsbar {
       background: var(--navy);
-      display: grid; grid-template-columns: repeat(4, 1fr);
+      display: grid; grid-template-columns: repeat(3, 1fr);
       padding: 48px 32px; gap: 0;
     }
     .about-statsbar-item {
@@ -241,11 +241,13 @@
     .tl-badge.active { background: rgba(34,197,94,.1); color: #15803d; border: 1px solid rgba(34,197,94,.3); }
 
     @media (max-width: 900px) {
-      .about-statsbar { grid-template-columns: repeat(2, 1fr); }
-      .about-statsbar-item:nth-child(2) { border-right: none; }
-      .about-statsbar-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,.1); }
+      .about-statsbar { grid-template-columns: repeat(3, 1fr); }
       .about-intro { grid-template-columns: 1fr; gap: 40px; padding-top: 48px; }
       .timeline { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 600px) {
+      .about-statsbar { grid-template-columns: repeat(2, 1fr); }
+      .about-statsbar-item:nth-child(2) { border-right: none; }
     }
     @media (max-width: 560px) {
       .about-statsbar { grid-template-columns: repeat(2,1fr); padding: 32px 20px; }
@@ -506,10 +508,6 @@
     </div>
     <div class="about-statsbar-item">
       <div class="stat-number">3</div>
-      <div class="stat-label">cargos hospitalarios activos</div>
-    </div>
-    <div class="about-statsbar-item">
-      <div class="stat-number">3</div>
       <div class="stat-label">países de formación</div>
     </div>
     <div class="about-statsbar-item">
@@ -527,22 +525,20 @@
         <h2 class="section-title">Formación e información académica</h2>
         <div class="divider"></div>
         <p>
-          El Dr. Esteban Caram es Especialista en Cirugía General (Mat. 3672), egresado
-          de la Universidad Nacional de Tucumán en 1990 con promedio 7.97/10.
-          Completó su Residencia de Cirugía General en el Hospital Ángel C. Padilla
-          de Tucumán, posición ganada por concurso.
+          Especialista en Cirugía General (Mat. 3672), egresado de la Universidad
+          Nacional de Tucumán en 1990. Cirujano independiente con más de 35 años
+          de ejercicio continuo en San Miguel de Tucumán.
         </p>
         <p>
-          Su formación incluye estadías internacionales en hospitales de referencia de
+          Formación internacional en hospitales de referencia de
           <strong>España</strong> (Hospital de Cruces, Bilbao) y <strong>Brasil</strong>,
-          y rotaciones en los principales centros quirúrgicos de Buenos Aires: Hospital Italiano,
-          Hospital Británico y Hospital de Clínicas San Martín.
+          con rotaciones en los principales centros quirúrgicos de Buenos Aires:
+          Hospital Italiano, Hospital Británico y Hospital de Clínicas San Martín.
         </p>
         <p>
-          En 1996 obtuvo la habilitación profesional en España otorgada por el
-          Ministerio de Educación y Ciencias de Madrid. Con más de 35 años de ejercicio
-          continuo, combina precisión técnica en cirugía videolaparoscópica con un
-          trato humano y cercano al paciente.
+          Opera en el <strong>Sanatorio 9 de Julio</strong> y en el <strong>Sanatorio Parque</strong>,
+          atendiendo todas las obras sociales y prepagas. Consultorios en el
+          Instituto de Gastroenterología, B. Rivadavia 585.
         </p>
         <div class="societies">
           <span class="society-tag">MAAC · Soc. Argentina de Cirugía</span>
@@ -552,28 +548,28 @@
       </div>
 
       <div class="current-positions">
-        <h3>Cargos actuales</h3>
+        <h3>Actividad actual</h3>
         <div class="position-card">
           <div class="pos-dot current"></div>
           <div>
             <div class="pos-name">Instituto de Gastroenterología</div>
-            <div class="pos-role">Cirujano de planta</div>
+            <div class="pos-role">Consultorios externos</div>
             <div class="pos-since">B. Rivadavia 585 · San Miguel de Tucumán</div>
           </div>
         </div>
         <div class="position-card">
           <div class="pos-dot current"></div>
           <div>
-            <div class="pos-name">Hospital Ángel C. Padilla</div>
-            <div class="pos-role">Cirujano de planta</div>
-            <div class="pos-since">Tucumán · Desde 1998</div>
+            <div class="pos-name">Sanatorio 9 de Julio</div>
+            <div class="pos-role">Cirujano independiente</div>
+            <div class="pos-since">San Miguel de Tucumán</div>
           </div>
         </div>
         <div class="position-card">
           <div class="pos-dot current"></div>
           <div>
-            <div class="pos-name">Parque Clínic</div>
-            <div class="pos-role">Cirujano de planta</div>
+            <div class="pos-name">Sanatorio Parque</div>
+            <div class="pos-role">Cirujano independiente</div>
             <div class="pos-since">San Miguel de Tucumán</div>
           </div>
         </div>
@@ -660,10 +656,10 @@
 
         <div class="tl-item" style="grid-column: 1 / -1">
           <div class="tl-dot active"></div>
-          <div class="tl-year">1998 – Presente</div>
-          <div class="tl-title">Cirujano de Planta · Hospital Padilla · Instituto de Gastroenterología · Parque Clínic</div>
-          <div class="tl-place">San Miguel de Tucumán, Argentina</div>
-          <span class="tl-badge active">Cargo actual</span>
+          <div class="tl-year">Actualidad</div>
+          <div class="tl-title">Cirujano independiente · Sanatorio 9 de Julio · Sanatorio Parque</div>
+          <div class="tl-place">Consultorios: Instituto de Gastroenterología · B. Rivadavia 585, San Miguel de Tucumán</div>
+          <span class="tl-badge active">Ejercicio actual</span>
         </div>
 
       </div>
@@ -872,11 +868,11 @@
       </div>
 
       <div class="faq-item">
-        <div class="faq-q">¿Qué obra social / prepaga acepta el instituto?</div>
+        <div class="faq-q">¿Qué obras sociales y prepagas atiende?</div>
         <div class="faq-a">
-          El Instituto de Gastroenterología trabaja con las principales obras sociales y
-          prepagas de la región. Te recomendamos consultar directamente al instituto al
-          (0381) 421-2613 para verificar la cobertura de tu plan antes de sacar turno.
+          Atiende todas las obras sociales y prepagas. Para confirmar la cobertura
+          de tu plan o consultar aranceles, podés llamar al (0381) 421-2613 o solicitar
+          tu turno directamente por el portal online.
         </div>
       </div>
 
