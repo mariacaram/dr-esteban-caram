@@ -320,6 +320,64 @@
       .hero-ctas { flex-direction: column; }
       .btn-primary, .btn-outline { text-align: center; }
     }
+
+    /* ── ANIMACIONES ── */
+    @media (prefers-reduced-motion: no-preference) {
+
+      /* Hero: entrada escalonada al cargar */
+      .hero-tag    { opacity: 0; transform: translateY(18px); animation: fadeUp .6s ease forwards .1s; }
+      .hero-title  { opacity: 0; transform: translateY(22px); animation: fadeUp .7s ease forwards .25s; }
+      .hero-subtitle { opacity: 0; transform: translateY(18px); animation: fadeUp .6s ease forwards .4s; }
+      .hero-desc   { opacity: 0; transform: translateY(14px); animation: fadeUp .6s ease forwards .55s; }
+      .hero-location { opacity: 0; transform: translateY(12px); animation: fadeUp .5s ease forwards .65s; }
+      .hero-ctas   { opacity: 0; transform: translateY(14px); animation: fadeUp .6s ease forwards .75s; }
+      .hero-photo-card { opacity: 0; transform: translateX(28px) scale(.97); animation: fadeRight .8s ease forwards .3s; }
+
+      @keyframes fadeUp {
+        to { opacity: 1; transform: translateY(0); }
+      }
+      @keyframes fadeRight {
+        to { opacity: 1; transform: translateX(0) scale(1); }
+      }
+
+      /* Scroll reveal: elementos que entran al hacer scroll */
+      .reveal {
+        opacity: 0;
+        transform: translateY(32px);
+        transition: opacity .65s ease, transform .65s ease;
+      }
+      .reveal.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stagger para grids de cards */
+      .reveal-stagger > * {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity .5s ease, transform .5s ease;
+      }
+      .reveal-stagger.visible > *:nth-child(1) { opacity:1; transform:translateY(0); transition-delay:.05s; }
+      .reveal-stagger.visible > *:nth-child(2) { opacity:1; transform:translateY(0); transition-delay:.15s; }
+      .reveal-stagger.visible > *:nth-child(3) { opacity:1; transform:translateY(0); transition-delay:.25s; }
+      .reveal-stagger.visible > *:nth-child(4) { opacity:1; transform:translateY(0); transition-delay:.35s; }
+      .reveal-stagger.visible > *:nth-child(5) { opacity:1; transform:translateY(0); transition-delay:.45s; }
+      .reveal-stagger.visible > *:nth-child(6) { opacity:1; transform:translateY(0); transition-delay:.55s; }
+
+      /* Stat cards: zoom sutil al entrar */
+      .stat-card {
+        transition: transform .3s ease, box-shadow .3s ease;
+      }
+      .stat-card:hover {
+        transform: translateY(-4px) scale(1.02);
+        box-shadow: var(--shadow-md);
+      }
+
+      /* Nav: sombra al hacer scroll */
+      nav.scrolled {
+        box-shadow: 0 4px 20px rgba(0,0,0,.1);
+      }
+    }
   </style>
 </head>
 <body>
@@ -384,7 +442,7 @@
 <!-- SOBRE MÍ -->
 <section id="sobre-mi">
   <div class="section-inner">
-    <div class="about-grid">
+    <div class="about-grid reveal">
       <div class="about-text">
         <p class="section-eyebrow">Sobre mí</p>
         <h2 class="section-title">Formación e información académica</h2>
@@ -405,7 +463,7 @@
           Trabaja en forma coordinada con el equipo de especialistas del instituto, garantizando
           una atención integral y multidisciplinaria para cada caso.
         </p>
-        <div class="about-stats">
+        <div class="about-stats reveal-stagger">
           <div class="stat-card">
             <div class="stat-number">+10</div>
             <div class="stat-label">años de experiencia</div>
@@ -469,7 +527,7 @@
     <p class="section-eyebrow">Especialidades</p>
     <h2 class="section-title">Procedimientos y cirugías</h2>
     <div class="divider"></div>
-    <div class="services-grid">
+    <div class="services-grid reveal-stagger">
 
       <div class="service-card">
         <div class="service-icon">
@@ -544,7 +602,7 @@
 <!-- INSTITUTO -->
 <section id="instituto">
   <div class="section-inner">
-    <div class="instituto-grid">
+    <div class="instituto-grid reveal">
       <div class="instituto-text">
         <p class="section-eyebrow" style="color:var(--teal-mid)">Dónde atiendo</p>
         <h2 class="section-title">Instituto de Gastroenterología Tucumán</h2>
@@ -620,7 +678,7 @@
     <p class="section-eyebrow">Preguntas frecuentes</p>
     <h2 class="section-title">Todo lo que necesitás saber</h2>
     <div class="divider"></div>
-    <div class="faq-grid">
+    <div class="faq-grid reveal-stagger">
 
       <div class="faq-item">
         <div class="faq-q">¿Cuándo está indicada una cirugía laparoscópica?</div>
@@ -687,7 +745,7 @@
 <!-- CONTACTO -->
 <section id="contacto">
   <div class="section-inner">
-    <div class="contact-grid">
+    <div class="contact-grid reveal">
       <div class="contact-block">
         <p class="section-eyebrow">Contacto</p>
         <h3>¿Necesitás más información?</h3>
@@ -752,5 +810,49 @@
   </div>
 </footer>
 
+<script>
+  // Nav sombra al scroll
+  const nav = document.querySelector('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+  }, { passive: true });
+
+  // Intersection Observer para reveal y reveal-stagger
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+
+  // Contadores animados en stat-number
+  const counterObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      const el = entry.target;
+      const text = el.textContent.trim();
+      const num = parseFloat(text.replace(/[^0-9.]/g, ''));
+      if (isNaN(num)) return;
+      const prefix = text.match(/^[^0-9]*/)[0];
+      const suffix = text.match(/[^0-9.]*$/)[0];
+      const duration = 1200;
+      const steps = 50;
+      let current = 0;
+      const increment = num / steps;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= num) { current = num; clearInterval(timer); }
+        el.textContent = prefix + (Number.isInteger(num) ? Math.round(current) : current.toFixed(1)) + suffix;
+      }, duration / steps);
+      counterObserver.unobserve(el);
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.stat-number').forEach(el => counterObserver.observe(el));
+</script>
 </body>
 </html>
