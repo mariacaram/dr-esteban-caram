@@ -171,30 +171,86 @@
     .divider { width: 48px; height: 3px; background: var(--teal); border-radius: 2px; margin: 20px 0 48px; }
 
     /* ── SOBRE MÍ ── */
-    #sobre-mi { background: var(--gray-light); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: start; }
-    .about-text p { font-size: .95rem; color: var(--gray-dark); line-height: 1.8; margin-bottom: 18px; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
-    .stat-card {
-      background: var(--white); border-radius: var(--radius); padding: 20px;
-      border: 1px solid var(--border); text-align: center;
+    #sobre-mi { background: var(--gray-light); padding-top: 0; }
+    .about-statsbar {
+      background: var(--navy);
+      display: grid; grid-template-columns: repeat(4, 1fr);
+      padding: 48px 32px; gap: 0;
     }
-    .stat-number { font-family: var(--serif); font-size: 2.2rem; font-weight: 600; color: var(--teal); line-height: 1; }
-    .stat-label { font-size: .78rem; color: var(--gray-mid); margin-top: 4px; letter-spacing: .03em; }
-    .credentials { margin-top: 0; }
-    .credentials h3 { font-family: var(--serif); font-size: 1.4rem; color: var(--navy); margin-bottom: 24px; font-weight: 500; }
-    .credential-item {
-      display: flex; gap: 16px; align-items: flex-start;
-      padding: 18px 0; border-bottom: 1px solid var(--border);
+    .about-statsbar-item {
+      text-align: center; padding: 8px 24px;
+      border-right: 1px solid rgba(255,255,255,.1);
     }
-    .credential-item:last-child { border-bottom: none; }
-    .cred-dot {
+    .about-statsbar-item:last-child { border-right: none; }
+    .stat-number { font-family: var(--serif); font-size: 2.8rem; font-weight: 600; color: var(--teal-mid); line-height: 1; }
+    .stat-label { font-size: .76rem; color: rgba(255,255,255,.5); margin-top: 6px; letter-spacing: .05em; text-transform: uppercase; }
+
+    .about-intro { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; padding-top: 72px; }
+    .about-bio p { font-size: .95rem; color: var(--gray-dark); line-height: 1.8; margin-bottom: 16px; }
+    .societies { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 24px; }
+    .society-tag {
+      font-size: .75rem; font-weight: 600; letter-spacing: .04em;
+      background: var(--teal-light); color: var(--teal-dark);
+      padding: 6px 14px; border-radius: 20px; border: 1px solid var(--teal-mid);
+    }
+
+    .current-positions h3 { font-family: var(--serif); font-size: 1.35rem; color: var(--navy); font-weight: 500; margin-bottom: 20px; }
+    .position-card {
+      background: var(--white); border-radius: var(--radius); padding: 20px 22px;
+      border: 1px solid var(--border); margin-bottom: 12px;
+      display: flex; align-items: flex-start; gap: 14px;
+      transition: box-shadow .2s, transform .2s, border-color .2s;
+    }
+    .position-card:hover { box-shadow: var(--shadow-md); transform: translateY(-2px); border-color: var(--teal-mid); }
+    .pos-dot {
       width: 10px; height: 10px; background: var(--teal); border-radius: 50%;
-      flex-shrink: 0; margin-top: 6px;
+      flex-shrink: 0; margin-top: 5px;
     }
-    .cred-year { font-size: .75rem; color: var(--teal); font-weight: 600; letter-spacing: .06em; margin-bottom: 2px; }
-    .cred-title { font-size: .92rem; color: var(--navy); font-weight: 500; margin-bottom: 2px; }
-    .cred-place { font-size: .82rem; color: var(--gray-mid); }
+    .pos-dot.current { background: #22c55e; box-shadow: 0 0 0 3px rgba(34,197,94,.2); }
+    .pos-name { font-size: .92rem; color: var(--navy); font-weight: 600; margin-bottom: 2px; }
+    .pos-role { font-size: .8rem; color: var(--teal); font-weight: 500; margin-bottom: 2px; }
+    .pos-since { font-size: .76rem; color: var(--gray-mid); }
+
+    /* Timeline */
+    .tl-section { padding-top: 56px; padding-bottom: 16px; }
+    .tl-heading { font-family: var(--serif); font-size: 1.35rem; color: var(--navy); font-weight: 500; margin-bottom: 36px; }
+    .timeline { position: relative; padding-left: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 0 48px; }
+    .timeline::before {
+      content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px;
+      width: 2px; background: linear-gradient(to bottom, var(--teal), var(--teal-mid) 80%, transparent);
+    }
+    .tl-item { position: relative; padding-bottom: 28px; }
+    .tl-item:last-child { padding-bottom: 0; }
+    .tl-dot {
+      position: absolute; left: -24px; top: 4px;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--white); border: 2.5px solid var(--teal);
+      box-shadow: 0 0 0 3px rgba(11,122,140,.12);
+    }
+    .tl-dot.intl { background: var(--teal); }
+    .tl-dot.active { background: #22c55e; border-color: #22c55e; box-shadow: 0 0 0 4px rgba(34,197,94,.2); }
+    .tl-year { font-size: .7rem; color: var(--teal); font-weight: 700; letter-spacing: .08em; text-transform: uppercase; margin-bottom: 3px; }
+    .tl-title { font-size: .9rem; color: var(--navy); font-weight: 600; line-height: 1.35; margin-bottom: 3px; }
+    .tl-place { font-size: .8rem; color: var(--gray-mid); line-height: 1.4; }
+    .tl-badge {
+      display: inline-block; margin-top: 5px;
+      font-size: .68rem; font-weight: 700; letter-spacing: .05em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 20px;
+    }
+    .tl-badge.intl { background: rgba(11,122,140,.1); color: var(--teal-dark); border: 1px solid var(--teal-mid); }
+    .tl-badge.active { background: rgba(34,197,94,.1); color: #15803d; border: 1px solid rgba(34,197,94,.3); }
+
+    @media (max-width: 900px) {
+      .about-statsbar { grid-template-columns: repeat(2, 1fr); }
+      .about-statsbar-item:nth-child(2) { border-right: none; }
+      .about-statsbar-item:nth-child(3) { border-right: 1px solid rgba(255,255,255,.1); }
+      .about-intro { grid-template-columns: 1fr; gap: 40px; padding-top: 48px; }
+      .timeline { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 560px) {
+      .about-statsbar { grid-template-columns: repeat(2,1fr); padding: 32px 20px; }
+      .stat-number { font-size: 2.2rem; }
+    }
 
     /* ── ESPECIALIDADES ── */
     #especialidades { background: var(--white); }
@@ -441,83 +497,178 @@
 
 <!-- SOBRE MÍ -->
 <section id="sobre-mi">
+
+  <!-- Stats bar -->
+  <div class="about-statsbar reveal-stagger">
+    <div class="about-statsbar-item">
+      <div class="stat-number">+35</div>
+      <div class="stat-label">años de experiencia</div>
+    </div>
+    <div class="about-statsbar-item">
+      <div class="stat-number">3</div>
+      <div class="stat-label">cargos hospitalarios activos</div>
+    </div>
+    <div class="about-statsbar-item">
+      <div class="stat-number">3</div>
+      <div class="stat-label">países de formación</div>
+    </div>
+    <div class="about-statsbar-item">
+      <div class="stat-number">+40</div>
+      <div class="stat-label">presentaciones científicas</div>
+    </div>
+  </div>
+
   <div class="section-inner">
-    <div class="about-grid reveal">
-      <div class="about-text">
+
+    <!-- Bio + cargos actuales -->
+    <div class="about-intro reveal">
+      <div class="about-bio">
         <p class="section-eyebrow">Sobre mí</p>
         <h2 class="section-title">Formación e información académica</h2>
         <div class="divider"></div>
         <p>
-          El Dr. Esteban Caram es Especialista en Cirugía General (Mat. 3672) egresado de la
-          Universidad Nacional de Tucumán. Se desempeña en el Instituto de Gastroenterología de
-          Tucumán, donde realiza cirugías del aparato digestivo con especial énfasis en cirugía
-          videolaparoscópica.
+          El Dr. Esteban Caram es Especialista en Cirugía General (Mat. 3672), egresado
+          de la Universidad Nacional de Tucumán en 1990 con promedio 7.97/10.
+          Completó su Residencia de Cirugía General en el Hospital Ángel C. Padilla
+          de Tucumán, posición ganada por concurso.
         </p>
         <p>
-          Su formación continua y su compromiso con la actualización permanente le permiten brindar
-          a sus pacientes los estándares más elevados en diagnóstico y tratamiento quirúrgico.
-          Combina la precisión técnica con un trato humano y cercano, acompañando al paciente
-          en cada etapa del proceso.
+          Su formación incluye estadías internacionales en hospitales de referencia de
+          <strong>España</strong> (Hospital de Cruces, Bilbao) y <strong>Brasil</strong>,
+          y rotaciones en los principales centros quirúrgicos de Buenos Aires: Hospital Italiano,
+          Hospital Británico y Hospital de Clínicas San Martín.
         </p>
         <p>
-          Trabaja en forma coordinada con el equipo de especialistas del instituto, garantizando
-          una atención integral y multidisciplinaria para cada caso.
+          En 1996 obtuvo la habilitación profesional en España otorgada por el
+          Ministerio de Educación y Ciencias de Madrid. Con más de 35 años de ejercicio
+          continuo, combina precisión técnica en cirugía videolaparoscópica con un
+          trato humano y cercano al paciente.
         </p>
-        <div class="about-stats reveal-stagger">
-          <div class="stat-card">
-            <div class="stat-number">+10</div>
-            <div class="stat-label">años de experiencia</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">UNT</div>
-            <div class="stat-label">Universidad Nacional de Tucumán</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">IGT</div>
-            <div class="stat-label">Instituto de Gastroenterología Tucumán</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-number">3672</div>
-            <div class="stat-label">matrícula provincial</div>
-          </div>
+        <div class="societies">
+          <span class="society-tag">MAAC · Soc. Argentina de Cirugía</span>
+          <span class="society-tag">Soc. de Cirujanos de Tucumán</span>
+          <span class="society-tag">Colegio Médico de Tucumán</span>
         </div>
       </div>
-      <div class="credentials">
-        <h3>Formación y trayectoria</h3>
-        <div class="credential-item">
-          <div class="cred-dot"></div>
+
+      <div class="current-positions">
+        <h3>Cargos actuales</h3>
+        <div class="position-card">
+          <div class="pos-dot current"></div>
           <div>
-            <div class="cred-year">GRADO</div>
-            <div class="cred-title">Médico Cirujano</div>
-            <div class="cred-place">Universidad Nacional de Tucumán (UNT)</div>
+            <div class="pos-name">Instituto de Gastroenterología</div>
+            <div class="pos-role">Cirujano de planta</div>
+            <div class="pos-since">B. Rivadavia 585 · San Miguel de Tucumán</div>
           </div>
         </div>
-        <div class="credential-item">
-          <div class="cred-dot"></div>
+        <div class="position-card">
+          <div class="pos-dot current"></div>
           <div>
-            <div class="cred-year">RESIDENCIA</div>
-            <div class="cred-title">Cirugía General</div>
-            <div class="cred-place">Hospital de referencia — Tucumán</div>
+            <div class="pos-name">Hospital Ángel C. Padilla</div>
+            <div class="pos-role">Cirujano de planta</div>
+            <div class="pos-since">Tucumán · Desde 1998</div>
           </div>
         </div>
-        <div class="credential-item">
-          <div class="cred-dot"></div>
+        <div class="position-card">
+          <div class="pos-dot current"></div>
           <div>
-            <div class="cred-year">ESPECIALIDAD</div>
-            <div class="cred-title">Cirugía General — Mat. 3672</div>
-            <div class="cred-place">Especialista en Cirugía Videolaparoscópica</div>
-          </div>
-        </div>
-        <div class="credential-item">
-          <div class="cred-dot"></div>
-          <div>
-            <div class="cred-year">ACTUAL</div>
-            <div class="cred-title">Médico de planta — Cirugía</div>
-            <div class="cred-place">Instituto de Gastroenterología Tucumán</div>
+            <div class="pos-name">Parque Clínic</div>
+            <div class="pos-role">Cirujano de planta</div>
+            <div class="pos-since">San Miguel de Tucumán</div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- Timeline -->
+    <div class="tl-section reveal">
+      <h3 class="tl-heading">Trayectoria de formación</h3>
+      <div class="timeline">
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1990</div>
+          <div class="tl-title">Médico Cirujano — UNT</div>
+          <div class="tl-place">Universidad Nacional de Tucumán · Prom. 7.97/10</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1990 – 1994</div>
+          <div class="tl-title">Residencia de Cirugía General</div>
+          <div class="tl-place">Hospital Ángel C. Padilla, Tucumán · Cargo por concurso</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1992</div>
+          <div class="tl-title">Rotación en Cirugía Colorrectal</div>
+          <div class="tl-place">Hospital Italiano de Buenos Aires · Dr. Fernando Bonadeo Lasalle</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1994</div>
+          <div class="tl-title">Especialista en Cirugía General</div>
+          <div class="tl-place">Mat. 3672 · Argentina</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1995</div>
+          <div class="tl-title">Rotación en Cirugía Laparoscópica</div>
+          <div class="tl-place">H. de Clínicas Gral. San Martín, Buenos Aires · Dr. Pedro Ferraina</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot intl"></div>
+          <div class="tl-year">1996</div>
+          <div class="tl-title">Habilitación profesional en España</div>
+          <div class="tl-place">Ministerio de Educación y Ciencias · Madrid</div>
+          <span class="tl-badge intl">España</span>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot intl"></div>
+          <div class="tl-year">1996 – 1998</div>
+          <div class="tl-title">Cirugía General y Digestiva</div>
+          <div class="tl-place">Hospital de Cruces, Bilbao · Dr. Alfredo Echevarría</div>
+          <span class="tl-badge intl">España · 2 años</span>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">1999</div>
+          <div class="tl-title">Cirugía General — Hospital Británico</div>
+          <div class="tl-place">Buenos Aires · Dr. Martín Mihura</div>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot intl"></div>
+          <div class="tl-year">2009</div>
+          <div class="tl-title">Cirugía Laparoscópica de Reflujo Gastroesofágico</div>
+          <div class="tl-place">Fundação Centro Médico Campinas, São Paulo · Dr. Nilton Aranha</div>
+          <span class="tl-badge intl">Brasil</span>
+        </div>
+
+        <div class="tl-item">
+          <div class="tl-dot"></div>
+          <div class="tl-year">2010</div>
+          <div class="tl-title">Actualización en Cirugía General y Digestiva</div>
+          <div class="tl-place">Hospital Italiano de Buenos Aires · Dr. Demetrio Cabada</div>
+        </div>
+
+        <div class="tl-item" style="grid-column: 1 / -1">
+          <div class="tl-dot active"></div>
+          <div class="tl-year">1998 – Presente</div>
+          <div class="tl-title">Cirujano de Planta · Hospital Padilla · Instituto de Gastroenterología · Parque Clínic</div>
+          <div class="tl-place">San Miguel de Tucumán, Argentina</div>
+          <span class="tl-badge active">Cargo actual</span>
+        </div>
+
+      </div>
+    </div>
+
   </div>
 </section>
 
